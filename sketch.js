@@ -17,7 +17,7 @@ var base;
 var BImg,backImg;
 function preload()
 {
-  BImg=loadImage("bg.jpg");
+  backImg=loadImage('bg.jpg');
 }
 
 function setup() {

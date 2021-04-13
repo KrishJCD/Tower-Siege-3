@@ -18,6 +18,7 @@ var BImg,backImg;
 function preload()
 {
   backImg=loadImage("bg.jpg");
+  getTime();
 }
 
 function setup() {
@@ -78,26 +79,11 @@ function setup() {
 
   hex=new Target(hexagonal,{x:200,y:100});
   //Hexagon Creation.
-  getTime();
+  //getTime();
   World.add(world,engine);
   Engine.run(engine);
 }
-async function getTime(){ 
-  var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata"); 
-  var responseJSON = await response.json(); 
-  console.log(responseJSON); 
-  var datetime=responseJSON.datetime;
-  var hour = datetime.slice(11,13);
-  if(hour>=6 && hour<=16)
-  {
-    BImg="bg.jpg";
-  }
-  else
-  {
-      BImg="bg1.jpg";
-  }
-  backImg=loadImage(BImg);
-}
+
 function draw() {
   Engine.update(engine);
   if(backImg)
@@ -165,3 +151,19 @@ function keyPressed()
   }
 }
 
+async function getTime(){ 
+  var response = await fetch("https://worldtimeapi.org/api/timezone/Asia/Kolkata"); 
+  var responseJSON = await response.json(); 
+  console.log(responseJSON); 
+  var datetime=responseJSON.datetime;
+  var hour = datetime.slice(11,13);
+  if(hour>=6 && hour<=16)
+  {
+    BImg="bg.jpg";
+  }
+  else
+  {
+      BImg="bg1.jpg";
+  }
+  backImg=loadImage(BImg);
+}

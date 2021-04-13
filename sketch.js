@@ -88,7 +88,7 @@ async function getTime(){
   console.log(responseJSON); 
   var datetime=responseJSON.datetime;
   var hour = datetime.slice(11,13);
-  if(hour>=6 && hour<=18)
+  if(hour>=6 && hour<=16)
   {
     BImg="bg.jpg";
   }
